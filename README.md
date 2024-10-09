@@ -2,6 +2,22 @@
 
 This repository contains the modeling and simulation of a solar inverter system using Physics-Informed Neural Networks (PINNs) for SmartTrak AI. The main objective is to integrate physical laws into neural network models to achieve robust predictions, especially in scenarios involving sensor faults or limited data availability.
 
+## Update - 9 Oct 2024
+
+Files mentioned below (please read) are cumulatively put into use to streamline the modelling of the solar panel and inverter. With actual irradiance data provided by Smarttrak AI.
+My approach : 
+- Creating a list of the irradiance points, removing NaN values.
+- Traversing through the list, and for take each data point (let, G).
+- Using that as an input to `iv_char.py` to generate an i-v relation corresponding to each irradiance point.
+- Now, similar thought process as before, get the mppt point, use the dc-dc converter to get the desired voltage, and finally use the IGBT Control and EMI Filter to get the desired
+  ac output.
+
+### Some major changes and updates 
+- Changed the working of `igbt_emi_filter.py` to now output a 3-phase AC waveform of 50Hz frequency instead of a single phase output, this was possible by using six IGBT switches
+  instead of four.
+- Assumed 50 cells connected in series making a string, hence adding up the MPPT voltage by one-cell, and 50 of such strings in parallel, adding up the current formed by one string,
+  this forms a single SMB, and assuming we have 7 such SMBs in parallel, the final DC current gets multiplied by 7.
+ 
 ## Table of Contents
 
 - [Introduction](#introduction)
