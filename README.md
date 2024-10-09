@@ -3,8 +3,9 @@
 This repository contains the modeling and simulation of a solar inverter system using Physics-Informed Neural Networks (PINNs) for SmartTrak AI. The main objective is to integrate physical laws into neural network models to achieve robust predictions, especially in scenarios involving sensor faults or limited data availability.
 
 ## Update - 9 Oct 2024
+1st take of a working model - `modeling_fin.ipynb` 
 
-Files mentioned below (please read) are cumulatively put into use to streamline the modelling of the solar panel and inverter. With actual irradiance data provided by Smarttrak AI.
+The components' files mentioned below (please read) are cumulatively put into use to streamline the modelling of the solar panel and inverter. With actual irradiance data provided by Smarttrak AI.
 My approach : 
 - Creating a list of the irradiance points, removing NaN values.
 - Traversing through the list, and for take each data point (let, G).
